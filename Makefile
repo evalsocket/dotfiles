@@ -2,8 +2,8 @@ all: sync
 
 sync:
 	# brew bundle --global
-	git clone git@github.com:ahmetb/kubectl-aliases.git ~/.kubectl_aliases
-	bash tools.sh
+	# git clone git@github.com:ahmetb/kubectl-aliases.git ~/.kubectl_aliases
+	# bash tools.sh
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.tmux/
 
@@ -16,7 +16,7 @@ sync:
 	[ -f ~/.tigrc ] || ln -s $(PWD)/tigrc ~/.tigrc
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
 	[ -f ~/.agignore ] || ln -s $(PWD)/agignore ~/.agignore
-	[ -f ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist ] || ln -s $(PWD)/io.evalsocket.dark-mode-notify.plist ~/Library/LaunchAgents/io.arslan.dark-mode-notify.plist
+	[ -f ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist ] || ln -s $(PWD)/io.evalsocket.dark-mode-notify.plist ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist
 
 	# don't show last login message
 	touch ~/.hushlogin
@@ -33,6 +33,6 @@ clean:
 	rm -f ~/.gitconfig
 	rm -f ~/.agignore
 	rm -f ~/.agignore
-	rm -f ~/Library/LaunchAgents/io.arslan.dark-mode-notify.plist
+	rm -f ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist
 
 .PHONY: all clean sync 

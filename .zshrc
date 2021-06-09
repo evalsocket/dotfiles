@@ -1,6 +1,10 @@
 export ZSH=/Users/evalsocket/.oh-my-zsh
 export ZSH_DISABLE_COMPFIX=true
 
+# Store credentials 
+LOCAL_RC=$HOME/.zshrc.local
+test -f $LOCAL_RC && source $LOCAL_RC
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -49,7 +53,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting virtualenv zsh-z colored-man-pages zsh-completions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting virtualenv zsh-z colored-man-pages)
 
 # User configuration
 
@@ -141,35 +145,11 @@ fi
 [ -f ~/.kubectl_aliases ] && source \
    <(cat ~/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
 
-# Load custom functions
-if [[ -f "$HOME/workspace/evalsocket/dotfiles/zsh_functions.inc" ]]; then
-	source "$HOME/workspace/evalsocket/dotfiles/zsh_functions.inc"
-else
-	echo >&2 "WARNING: can't load shell functions"
-fi
-
 # use system paths (e.g. /etc/paths.d/)
 eval "$(/usr/libexec/path_helper -s)"
 
 # go tools
 PATH="$PATH:$HOME/go/bin"
-
-if [ -f "$HOME/.gnupg/gpg_profile" ] && command -v gpg-agent > /dev/null; then
-  source "$HOME/.gnupg/gpg_profile"
-else
-  log "WARNING: skipping loading gpg-agent"
-fi
-
-# kubectl completion (w/ refresh cache every 48-hours)
-if command -v kubectl > /dev/null; then
-	kcomp="$HOME/.kube/.zsh_completion"
-	if [ ! -f "$kcomp" ] ||  [ "$(( $(date +"%s") - $(stat -c "%Y" "$kcomp") ))" -gt "172800" ]; then
-		mkdir -p "$(dirname "$kcomp")"
-		kubectl completion zsh > "$kcomp"
-		log "refreshing kubectl zsh completion to $kcomp"
-	fi
-	source "$kcomp"
-fi
 
 # load zsh plugins installed via brew
 if [[ -d "$HOMEBREW/share/zsh-syntax-highlighting" ]]; then
