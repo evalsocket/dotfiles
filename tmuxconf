@@ -1,17 +1,14 @@
 # INSTALL
 # cp tmuxconf ~/.tmux.conf
 #
-# Set prefix key to c-f instead of default c-b
-unbind C-b
-set -g prefix C-f
-bind C-f send-prefix
+# Set prefix key to C-a instead of default c-b
+unbind C-f
+set-option -g prefix C-a
+bind C-a send-prefix
 
-set-environment -g PATH "/usr/local/bin:/bin:/usr/bin"
 
-set-option -g default-shell /usr/local/bin/zsh
-
-# toogle last window by hitting again C-f
-bind-key C-f last-window
+# toogle last window by hitting again C-a
+bind-key C-a last-window
 
 # if multiple clients are attached to the same window, maximize it to the
 # bigger one
@@ -141,12 +138,12 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ######## iTerm + Tmux key integration #########
 # First of all, iTerm can send hex codes for shortcuts you define. So for
-# example you can send a hex code for the shortcut "c-f v" which in my case
+# example you can send a hex code for the shortcut "C-a v" which in my case
 # opens a vertical pane (see setting above). The hex code for this combination
 # is: 0x06 0x76. There are many cases to find it out. One of them is the tool
 # 'xxd'
 
-# If you run "xxd -psd" and hit "c-f v" and then enter and finally c-c to exit
+# If you run "xxd -psd" and hit "C-a v" and then enter and finally c-c to exit
 # , it outputs the following:
 #
 # 	$ xxd -psd
@@ -155,12 +152,12 @@ run '~/.tmux/plugins/tpm/tpm'
 #
 # What matters is the sequence  06760a^C where:
 #
-# 	06 -> c-f
+# 	06 -> C-a
 # 	76 -> v
 # 	0a -> return
 #	^C -> c-c
 #
-# From here, we know that 0x06 0x76 corresponds to "c-f v".
+# From here, we know that 0x06 0x76 corresponds to "C-a v".
 #
 # Finally, inside the iTerm2 Key settings, I'm adding just various shortcuts,
 # such as cmd-j, cmd-left, etc.. , select the option "send hex code" and the
@@ -171,12 +168,12 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ######## Alacritty + Tmux key integration #########
 # First of all, Alacritty can send hex codes for shortcuts you define. So for
-# example you can send a hex code for the shortcut "c-f v" which in my case
+# example you can send a hex code for the shortcut "C-a v" which in my case
 # opens a vertical pane (see setting above). The hex code for this combination
 # is: 0x06 0x76. There are many cases to find it out. One of them is the tool
 # 'xxd'
 
-# If you run "xxd -psd" and hit "c-f v" and then enter and finally c-c to exit
+# If you run "xxd -psd" and hit "C-a v" and then enter and finally c-c to exit
 # , it outputs the following:
 #
 # 	$ xxd -psd
@@ -185,12 +182,12 @@ run '~/.tmux/plugins/tpm/tpm'
 #
 # What matters is the sequence  06760a^C where:
 #
-# 	06 -> c-f
+# 	06 -> C-a
 # 	76 -> v
 # 	0a -> return
 #	^C -> c-c
 #
-# From here, we know that 0x06 0x76 corresponds to "c-f v".
+# From here, we know that 0x06 0x76 corresponds to "C-a v".
 #
 # Next step is to add a line to 'key_binding' setting in Alacritty:
 #

@@ -155,3 +155,38 @@ alias ffmpeg='docker run --rm -i -t -v $PWD:/tmp/workdir jrottenberg/ffmpeg'
 alias youtube-dl='docker run --rm -i -t -v $PWD:/data vimagick/youtube-dl'
 alias goclone='$HOME/workspace/goclone/goclone'
 alias decodecert='openssl x509 -in /dev/stdin -text'
+
+
+## Flytectl alias
+alias fs="flytectl sandbox"
+alias fss="flytectl sandbox start"
+alias fst="flytectl sandbox teardown"
+
+alias fge="flytectl get"
+alias fge="flytectl get execution"
+alias fgp="flytectl get project"
+alias fgw="flytectl get workflow"
+alias fgt="flytectl get task"
+alias fgl="flytectl get launchplan"
+
+alias fc="flytectl create"
+alias fce="flytectl create execution"
+alias fcp="flytectl create project"
+
+alias fd="flytectl delete"
+alias fde="flytectl delete execution"
+
+alias fu="flytectl update"
+alias fup="flytectl update project"
+alias fuw="flytectl update workflow"
+alias fut="flytectl update task"
+alias ful="flytectl update launchplan"
+
+alias fr="flytectl register"
+alias frf="flytectl register files"
+alias fre="flytectl register examples -p flytesnacks -d development"
+
+alias fv="flytectl version"
+alias snackd="flytectl -p flytesnacks -d development"
+alias snackp="flytectl -p flytesnacks -d production"
+alias snacks="flytectl -p flytesnacks -d staging"

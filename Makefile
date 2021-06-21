@@ -1,9 +1,9 @@
 all: sync
 
 sync:
-	# brew bundle --global
-	# git clone git@github.com:ahmetb/kubectl-aliases.git ~/.kubectl_aliases
-	# bash tools.sh
+	brew bundle
+	git clone git@github.com:ahmetb/kubectl-aliases.git ~/.kubectl_aliases
+	bash tools.sh
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.tmux/
 
@@ -16,6 +16,8 @@ sync:
 	[ -f ~/.tigrc ] || ln -s $(PWD)/tigrc ~/.tigrc
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
 	[ -f ~/.agignore ] || ln -s $(PWD)/agignore ~/.agignore
+	[ -f ~/workspace/evalsocket ] || ln -s $(PWD)/Tiltfile ~/workspace/evalsocket
+	[ -f ~/workspace/flyteorg ] || ln -s $(PWD)/Tiltfile ~/workspace/flyteorg
 	[ -f ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist ] || ln -s $(PWD)/io.evalsocket.dark-mode-notify.plist ~/Library/LaunchAgents/io.evalsocket.dark-mode-notify.plist
 
 	# don't show last login message

@@ -53,7 +53,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting virtualenv zsh-z colored-man-pages)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting virtualenv zsh-z colored-man-pages kubectl)
 
 # User configuration
 
@@ -156,7 +156,5 @@ if [[ -d "$HOMEBREW/share/zsh-syntax-highlighting" ]]; then
 	source "$HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 if [[ -d "$HOMEBREW/share/zsh-autosuggestions" ]]; then
-	# source "$HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+	source "$HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
-
-export BAT_PAGER="less -RF"
